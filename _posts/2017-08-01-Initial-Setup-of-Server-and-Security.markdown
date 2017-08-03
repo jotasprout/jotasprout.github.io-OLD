@@ -25,3 +25,5 @@ Instructions for Ubuntu or whatever ...
 Instructions for Public Key Authentication
 
 Instructions for Disabling Root
+
+Instructions for Setting Up Two-Factor Authentication
