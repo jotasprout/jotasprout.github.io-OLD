@@ -27,3 +27,6 @@ Instructions for Public Key Authentication
 Instructions for Disabling Root
 
 Instructions for Setting Up Two-Factor Authentication
+Few things are as secure as two-factor authentication and this method is also both free and easy. For Ubuntu, it's one, short line of code. For CentOS--what I'm using--it's a wee bit (but not much) longer. 
+
+Installing Google Authenticator
