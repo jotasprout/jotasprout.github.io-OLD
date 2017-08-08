@@ -112,7 +112,9 @@ Between those tags, declare the main server name and an alias so that both point
     ErrorLog /var/www/roxorsoxor.com/error.log
     CustomLog /var/www/roxorsoxor.com/requests.log
 
-Let's test beginning by rebooting Apache
+In some tutes, that last line is shown with `common` at the end (I'm pretty sure it's shown that way as the default and it's always removed by the end). In the library books -- which seem to be different than anything else (because they're British or something? Is that a thing?) -- that last line ends with `combined`.
+
+Let's test beginning with a reboot of Apache
 
 `apachectl -k stop`
 
