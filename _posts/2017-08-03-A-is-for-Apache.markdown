@@ -88,12 +88,12 @@ So, in that file (I guess) or in your own (see bottom) add
 
 Between those tags, declare the main server name and an alias so that both point to the same place. Some of the following lines are from serverMom.org
 
-`ServerAdmin webmaster@example.com
+    ServerAdmin webmaster@example.com
     DocumentRoot /var/www/example.com/public_html
     ServerName www.example.com
     ServerAlias example.com
     ErrorLog /var/www/roxorsoxor.com/error.log
-    CustomLog /var/www/roxorsoxor.com/requests.log`
+    CustomLog /var/www/roxorsoxor.com/requests.log
 
 Let's test beginning by rebooting Apache
 `apachectl -k stop`
