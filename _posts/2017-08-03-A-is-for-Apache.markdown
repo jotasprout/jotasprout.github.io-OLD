@@ -96,20 +96,27 @@ Between those tags, declare the main server name and an alias so that both point
     CustomLog /var/www/roxorsoxor.com/requests.log
 
 Let's test beginning by rebooting Apache
+
 `apachectl -k stop`
+
 That kills all running Apache processes. Then
+
 `service httpd start`
 
 Then, according to serverMom, an index file in the `public_html` directory should work when you put your domain in your browser.
 
 FROM YE OLDE LIBARY BOOKS
+
 Add this to the end of the file
+
 `IncludeOptional sites-enabled/*.conf`
+
 Then save and close the file.
 
 Create Virtual Host Files
-`sudo mkdir /etc/httpd/sites-available
-sudo mkdir /etc/httpd/sites-enabled`
+
+    sudo mkdir /etc/httpd/sites-available
+    sudo mkdir /etc/httpd/sites-enabled
 
 According to DigitalOcean, `sites-available` is for all your files and `sites-enabled` contains symbolic links to the hosts you want published.
 
