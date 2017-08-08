@@ -9,39 +9,48 @@ This post will include an explation of `<VirtualHost *:80>` and how that differs
 Instructions adapted from my two library books, 
 
 Update Your Yumminess
-sudo yum -y update
+
+`sudo yum -y update`
 
 What's the "-y" for?
+
 The "y" tells the terminal to answer "yes" to any prompts. "Yes to all."
 
 Install Apache
+
 `yum install httpd`
+
 The tute I used said
+
 `sudo yum -y install httpd`
 
 What's the "-y" for?
 
 Start apache and tell it to start upon boot
-`sudo systemctl start httpd
-sudo systemctl enable httpd`
+
+    sudo systemctl start httpd
+    sudo systemctl enable httpd
 
 Do I also have to do the following? What's the difference? DigitalOcean is one tutorial that has these instead.
-`systemctl start httpd.service
-systemctl enable httpd.service`
+
+    systemctl start httpd.service
+    systemctl enable httpd.service
 
 Let's test it
+
 `sudo systemctl status httpd`
 
 While setting up our server, we installed and enabled a firewall. Now, we need to make sure it allows HTTP and HTTPS traffic.
 
-`sudo firewall-cmd --permanent --zone=public --add-service=http
-sudo firewall-cmd --permanent --zone=public --add-service=https
-sudo firewall-cmd --reload`
+    sudo firewall-cmd --permanent --zone=public --add-service=http
+    sudo firewall-cmd --permanent --zone=public --add-service=https
+    sudo firewall-cmd --reload
 
 What's the difference between the above and this?
-`sudo firewall-cmd --permanent --add-port=80/tcp
-sudo firewall-cmd --permanent --add-port=443/tcp
-sudo firewall-cmd --reload`
+
+    sudo firewall-cmd --permanent --add-port=80/tcp
+    sudo firewall-cmd --permanent --add-port=443/tcp
+    sudo firewall-cmd --reload
 
 Directing your browser to your server's IP address should open the Apache placeholder page. If it does, you rock--Apache is up and running.
 
@@ -54,37 +63,45 @@ First, let's create the directory in which our first (if not only) website will 
 The books use `home` instead of `html` or `public_html`. I don't know why. Apparently, `htdocs` is an equivalent alternative to `public_html`.
 
 Change ownership of the folder from you to your admin user (not root)
+
 `chown -R username:username /var/www/example.com/public_html`
 
 Why?
 
 Allow visitors to see/read the `www` directory by changing the permissions
+
 `chmod 755 /var/www`
 
 Tell Apache to Look for Virtual Hosts
+
 Some tutes (and my two CentOS library books) say to use Nano. Based on what I've read, I choose to use Vi. Apparently, the learning curve for Vi is steeper but it's much more powerful. Myself, I made a trusty cheat-sheet and the curve hasn't been bad. Except for that time I accidentally deleted a whole line of code and broke something. 
 
 For that reason, you might want to make these changes to a copy or make a backup copy.
-cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/heepd.conf.backup
+
+`cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/heepd.conf.backup`
 
 Open Apache's main configuration file
+
 I think you have to do this as root ... so, type
+
 `su - root`
+
 then
+
 `sudo vi /etc/httpd/conf/httpd.conf`
 
 Find lines that look like the following and make sure they are listening to port 80 and (at least?) the second line is not commented out (remove the "#" from the beginning of the line).
 
 Find the following line and uncomment it
+
 `#NameVirtualHost *:80`
 
 The Servermom.org tute, "How to Add New Site Into Your Apache-based CentOS Server" states that below the above line, you'll find something similar to the following and should edit it accordingly. Mine didn't have anything like the following but did have a couple lines of it elsewhere in the doc. I like the idea of having all of this together. The CentOS library books and the DigitalOcean tute said to create our own conf files and add the virtual host in there (along with other instructions at the end).
 
 So, in that file (I guess) or in your own (see bottom) add
 
-`<VirtualHost *:80>
-
-</VirtualHost>`
+    <VirtualHost *:80>
+    </VirtualHost>
 
 Between those tags, declare the main server name and an alias so that both point to the same place. Some of the following lines are from serverMom.org
 
@@ -121,7 +138,9 @@ Create Virtual Host Files
 According to DigitalOcean, `sites-available` is for all your files and `sites-enabled` contains symbolic links to the hosts you want published.
 
 Create the First Virtual Host File
+
 Create & open it by
+
 `sudo vi /etc/httpd/sites-available/example.com.conf`
 
 Continue from the DigitalOcean tute and compare what I then have to the LiquidWeb tute and we'll see where we are. "We" being me.
