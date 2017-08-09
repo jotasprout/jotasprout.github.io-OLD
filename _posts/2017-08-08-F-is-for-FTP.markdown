@@ -37,9 +37,9 @@ Now to configure that tool for security and whatnot. These next steps must be do
 
 `vi /etc/vsftpd/vsftpd.conf`
 
-These are our desired configurations:
+These configurations come from Tecmint and are similar to tutes except where indicated:
 
-	anonymous_enable=NO        		 # disable  anonymous login
+	anonymous_enable=NO        		 	# disable  anonymous login
 	local_enable=YES					# permit local logins
 	write_enable=YES					# enable FTP commands which change the filesystem
 	local_umask=022		        		# value of umask for file creation for local users
@@ -60,7 +60,16 @@ The above has
 
 But the other tutorial that mentions this option has it set to `YES`. 
 
+Enable passive mode. Why?
 
+	pasv_enable=Yes
+	pasv_min_port=40000
+	pasv_max_port=40100
+
+Still wondering about difference between "regular" and "service"
+
+	systemctl restart vsftpd.service
+	systemctl enable vsftpd.service
 
 ALLOW AND DENY USERS
 
@@ -73,16 +82,69 @@ RESTRICTING USERS
 
 `chroot_local_user=YES` restricts the user to their home directory.
 
-`allow_writeable_chroot=YES` allows them to write to that directory.
+`allow_writeable_chroot=YES` allows them to write to that directory. Be aware of the security implications of users having upload permissions and shell access. 
+
+Tecmint step 5 gives some great, more secure, steps to take regarding alternate "home" directories.
+
+The Krizna tute says "Setup SELinux to allow ftp access to the users home directories." How is that different from above? 
+
+`setsebool -P ftp_home_dir on`
+
+Tecmint, however, cites a RedHat bug report as the reason for disabling the `ftp_home_dir` directive by default and, instead, "use `semanage` command to set SELinux rule to allow FTP to read/write user’s home directory."
+
+`semanage boolean -m ftpd_full_access --on`
 
 Once all of this is done, restart vsftpd.
 
 `systemctl restart vsftpd`
 
-Create a FTP user and set the password for that user.
+Create a FTP user and set the password for that user. DigitalOcean's humble user instructions:
 
 	useradd ftpuser
 	passwd ftpuser
+
+Tecmint's tute has some interesting shizzle I need to look up
+
+	useradd -m -c “Ravi Saive, CEO” -s /bin/bash ravi
+	passwd ravi
+
+Tecmint then adds Ravi to the user list using some shizzle I need to look up.
+
+	echo "ravi" | tee -a /etc/vsftpd.userlist
+	cat /etc/vsftpd.userlist
+
+Krizna states "`/sbin/nologin` shell is used to prevent shell access to the server."
+
+	useradd -m dave -s /sbin/nologin
+	passwd dave
+
+Krizna states, "Now user dave can able to login ftp on port 21 ftp" using FileZilla. The screenshot shows the port field empty, Protocol set to FTP, Encryption set to "Use plain FTP" and Logon Type set to "Account."
+
+Then, right after that, Krizna has a section on installing openssh-server to "enable" SFTP:
+
+"Secure File Transfer Protocol is used to encrypt connections between clients and the FTP server. It is highly recommended to use SFTP because data is transferred over encrypted connection using SSH-tunnel on port 22."
+
+My new host specifically does not use 22 and says to use SFTP.
+
+Krizna tute goes on to create SFTP users and those instructions are confusing. Lastly, mentions using FTP and SFTP together and concludes with other changes for existing users I need to review.
+
+TUTORIALSPOINT SIDEBAR START
+
+TutorialsPoint states using `–M` instead of `–m` creates a user without a home directory. So `-m` creates a user with a home directory? What's the `-s` for?
+
+	useradd -M user1 –s /sbin/nologin
+	passwd user1
+
+TutorialsPoint then creates a home directory (named "mike") for the user (user1) they just created (specifically without a home directory -- what's the purpose behind this?).
+
+	mkdir /var/www/mike
+	chmod 755 /var/www/mike
+
+Grant user1 FTP access to the folder named "mike"
+
+`chown -R mike /var/www/user1`
+
+TUTORIALSPOINT SIDEBAR END
 
 Set the webroot as our FTP user's home directory.
 
@@ -97,3 +159,19 @@ Add user to apache group created in Apache post.
 Change permissions to apache group on webroot. What does that mean?
 
 `chgrp -R apache /var/www/html/webroot/`
+
+TESTING WITH TESTS FOR TESTING
+
+Try logging in anonymously.
+
+Try logging in as a user listed (or not) in the user list.
+
+Confirm user's are in their home (or desired alternate) directory.
+
+BUT NOW I'M CONFUSED
+
+DigitalOcean's "How To Configure vsftpd to Use SSL/TLS on a CentOS VPS" states, 
+
+"Warning: FTP is insecure! Consider using SFTP instead of FTP. [FTP] has fallen out of favor due to the lack of security inherent in its design. A very capable alternative is SFTP ... This protocol implements file sharing over SSH. If you must use FTP, you should at least secure the connection with SSL/TLS certificates."
+
+The first thing the tute does is install vsftpd which I thought was VERY secure, hence the name and, thus, more secure than SFTP which I inferred was "merely" secure. I need to research this.
