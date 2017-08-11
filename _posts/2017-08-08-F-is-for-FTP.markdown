@@ -71,11 +71,11 @@ Still wondering about difference between "regular" and "service"
 	systemctl restart vsftpd.service
 	systemctl enable vsftpd.service
 
-<h2>ALLOW AND DENY USERS</h2>
+## ALLOW AND DENY USERS
 
 You can grant or deny FTP access by listing users in `/etc/vsftpd.userlist`. First, enable the user list by setting `userlist_enable=YES` (above). If you want users listed to be denied access, set `userlist_deny=YES` (above). Setting `userlist_deny=NO` means that only users listed in the file are allowed/granted FTP login access. 
 
-<h3>RESTRICTING USERS</h3>
+### RESTRICTING USERS
 
 	chroot_local_user=YES
 	allow_writeable_chroot=YES
