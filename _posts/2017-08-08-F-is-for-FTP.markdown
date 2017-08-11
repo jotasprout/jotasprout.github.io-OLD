@@ -8,7 +8,7 @@ Instructions for setting up an FTP server on my CentOS7 VPS compiled and adapted
 
 My new host highly recommended using SFTP (specifically, in FileZilla's Site Manager). All but one of the tutorials I'm reviewing use and recommend VSFTP (so I'm just disregarding the fifth one).
 
-#Update Your Yumminess
+# Update Your Yumminess
 
 `yum check-update`
 
@@ -71,11 +71,11 @@ Still wondering about difference between "regular" and "service"
 	systemctl restart vsftpd.service
 	systemctl enable vsftpd.service
 
-##ALLOW AND DENY USERS
+<h2>ALLOW AND DENY USERS</h2>
 
 You can grant or deny FTP access by listing users in `/etc/vsftpd.userlist`. First, enable the user list by setting `userlist_enable=YES` (above). If you want users listed to be denied access, set `userlist_deny=YES` (above). Setting `userlist_deny=NO` means that only users listed in the file are allowed/granted FTP login access. 
 
-###RESTRICTING USERS
+<h3>RESTRICTING USERS</h3>
 
 	chroot_local_user=YES
 	allow_writeable_chroot=YES
@@ -162,9 +162,9 @@ Change permissions to apache group on webroot. What does that mean?
 
 TESTING WITH TESTS FOR TESTING
 
-*Try logging in anonymously.
-*Try logging in as a user listed (or not) in the user list.
-*Confirm user's are in their home (or desired alternate) directory.
+* Try logging in anonymously.
+* Try logging in as a user listed (or not) in the user list.
+* Confirm user's are in their home (or desired alternate) directory.
 
 BUT NOW I'M CONFUSED
 
