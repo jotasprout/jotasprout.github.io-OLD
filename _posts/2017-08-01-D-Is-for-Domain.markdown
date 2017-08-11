@@ -9,3 +9,7 @@ I can't even begin to tell you how much trouble I've had with domain configurati
 ## Mastering Your Domain
 * Getting a Domain
 * Pointing it to an IP address
+
+Check this out
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean#step-three%E2%80%94configure-your-domain

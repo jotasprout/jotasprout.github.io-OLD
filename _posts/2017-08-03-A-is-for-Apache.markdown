@@ -54,6 +54,8 @@ What's the difference between the above and this?
 
 Directing your browser to your server's IP address should open the Apache placeholder page. If it does, you rock--Apache is up and running.
 
+But I don't understand where that page is coming from. There's nothing in the `/var/www/html` folder (where, I'm told, I should put my site files). Even once I put a file in there and comment out the stuff in `/etc/httpd/conf.d/welcome.conf`, the default Apache page appears. 
+
 Your little Apache server can host multiple web sites with different domains using virtual hosts (think about how your host divides its servers into "virtual private servers"). So, now, we'll create a virtual host for your website.
 
 First, let's create the directory in which our first (if not only) website will live.
@@ -78,7 +80,7 @@ Some tutes (and my two CentOS library books) say to use Nano. Based on what I've
 
 For that reason, you might want to make these changes to a copy or make a backup copy.
 
-`cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/heepd.conf.backup`
+`cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.backup`
 
 Open Apache's main configuration file
 
@@ -109,8 +111,8 @@ Between those tags, declare the main server name and an alias so that both point
     DocumentRoot /var/www/example.com/public_html
     ServerName www.example.com
     ServerAlias example.com
-    ErrorLog /var/www/roxorsoxor.com/error.log
-    CustomLog /var/www/roxorsoxor.com/requests.log
+    ErrorLog /var/www/example.com/error.log
+    CustomLog /var/www/example.com/requests.log
 
 In some tutes, that last line is shown with `common` at the end (I'm pretty sure it's shown that way as the default and it's always removed by the end). In the library books -- which seem to be different than anything else (because they're British or something? Is that a thing?) -- that last line ends with `combined`.
 
@@ -124,9 +126,9 @@ That kills all running Apache processes. Then
 
 Then, according to serverMom, an index file in the `public_html` directory should work when you put your domain in your browser.
 
-FROM YE OLDE LIBARY BOOKS
+FROM YE OLDE LIBARY BOOKS AND DIGITALOCEAN
 
-Add this to the end of the file
+Add this to the end of the file (it's for this next thing we'll do--Virtual Host stuff--we need to tell Apache to look for virtual hosts)
 
 `IncludeOptional sites-enabled/*.conf`
 
@@ -145,4 +147,39 @@ Create & open it by
 
 `sudo vi /etc/httpd/sites-available/example.com.conf`
 
-Continue from the DigitalOcean tute and compare what I then have to the LiquidWeb tute and we'll see where we are. "We" being me.
+Inside it, do this:
+
+    <VirtualHost *:80>
+    </VirtualHost>
+
+Those tags say that their contents is a virtual host listening on port 80. Inside those tags, do this:
+
+    ServerName www.example.com
+    ServerAlias example.com
+
+From DigitalOcean: "In order for the www version of the domain to work correctly, the domain's DNS configuration will need an A record or CNAME that points www requests to the server's IP. A wildcard (*) record will also work. To learn more about DNS records, check out our host name setup guide."
+
+Point to the publicly accessible files of/for our site live:
+
+    DocumentRoot /var/www/example.com/public_html
+
+And, lastly, where Apache should store records of errors and requests. 
+
+    ErrorLog /var/www/example.com/error.log
+    CustomLog /var/www/example.com/requests.log combined
+
+That's where you check to see how many filthy crackers, thieves and terrorists are trying to break into your site.
+
+DigitalOcean says, "enable them so that Apache knows to serve them to visitors. To do this, we can create a symbolic link for each virtual host in the sites-enabled directory:"
+
+`sudo ln -s /etc/httpd/sites-available/example.com.conf /etc/httpd/sites-enabled/example.com.conf`
+
+Restart because that's what you do.
+
+`sudo apachectl restart`
+
+Now test it in your browser.
+
+Still need to add this material, compare, and consolidate all.
+
+http://www.servermom.org/how-to-add-new-site-into-your-apache-based-centos-server/454/
