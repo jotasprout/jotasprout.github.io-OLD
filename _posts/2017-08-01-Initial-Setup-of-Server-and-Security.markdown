@@ -9,6 +9,8 @@ We're going to do two things. First, make sure we can access it and do whatever 
 Initially, you'll login as root--then, neither you nor anyone else should do that again. Login in via this humble command
 `ssh root@Ye.Olde.IP.Address`
 
+Until your domain is all setup and configured, you can use your IP address as shown above.
+
 Create an obscenely unique new username with a ridiculously complicated password. Here, my new username is "user1."
 `adduser user1
 passwd user1`
