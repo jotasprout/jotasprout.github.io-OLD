@@ -30,3 +30,7 @@ Also, you'll need this ...
 https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/
 
 but I'm going to expand on that because you'll find the same folder names pieces of paths throughout the system and it can get confusing when somebody says, "install it in the x folder" and you're like, "Which x folder?"
+
+I'm going to add this, too, for now
+
+http://www.pathname.com/fhs/pub/fhs-2.3.html
