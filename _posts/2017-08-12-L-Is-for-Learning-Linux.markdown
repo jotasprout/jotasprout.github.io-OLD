@@ -13,6 +13,10 @@ For the longest time, I used only a small handful of commands. And when I say "h
 * Ownership (any tenant/user can have permissions, ownership is different)
 * Users
 
+## Lesson 1: I am Root
+
+You are a user. There are things you can't do. "Root" is the Great, Grand, Almighty Admin. A "super user" is a user with root-like privileges.
+
 ### References, Sources, and Such
 
 This great post
