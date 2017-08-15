@@ -7,3 +7,8 @@ categories: server admin
 With MySQL, you create, use and manage databases. 
 
 Any shared server should already have MySQL installed and any host worth paying more than a few cents for allows you to create as many databases as you'd like.
+
+I couldn't help but notice that every CentOS tutorial that included LAMP setup specifically used MariaDB so I researched it (I scanned two sites) and decided that's what I'll use. You can read for yourself here:
+
+* https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql
+* https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/
