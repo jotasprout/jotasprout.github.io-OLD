@@ -183,3 +183,7 @@ Now test it in your browser.
 Still need to add this material, compare, and consolidate all.
 
 http://www.servermom.org/how-to-add-new-site-into-your-apache-based-centos-server/454/
+
+# SECURITY
+
+Mastering CentOS Linux Server and CentOS Cookbook library books have GREAT security stuff I need to do.

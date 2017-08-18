@@ -22,11 +22,13 @@ In CentOS, users in the "wheel" group have "super user" privileges so I'm going 
 
 If you're using another OS, you'll have to do something else. 
 
-Instructions for Ubuntu or whatever ...
+Instructions for Ubuntu or whatever ... maybe
 
 Instructions for Public Key Authentication
 
 Instructions for Disabling Root
+
+Instructions for installing and using firewall
 
 Instructions for Setting Up Two-Factor Authentication
 Few things are as secure as two-factor authentication and this method is also both free and easy. For Ubuntu, it's one, short line of code. For CentOS--what I'm using--it's a wee bit (but not much) longer. 
