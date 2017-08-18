@@ -12,3 +12,27 @@ I couldn't help but notice that every CentOS tutorial that included LAMP setup s
 
 * https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql
 * https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/
+
+According to their excellent (and visually attactrive) documentation, it uses the exact same commands -- it's all SQL -- so there's no learning curve.
+
+So, let's get to installing.
+
+My goodness but their documentation is pretty (sorry). 
+
+yum update
+
+install
+
+start
+
+enable
+
+secure installation
+
+* enter/set root pw
+* remove anonymous users
+* disallow remote login
+* remove test db
+* reload privs
+
+Yer done.
