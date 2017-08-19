@@ -18,6 +18,21 @@ All your current code will still work and all of your current PHP knowledge stil
 
 Does that automatically install v7?
 
+Let's see what we have.
+
+## Testing AKA Making Sure It Works
+In the web root (`/var/www/html/` in both CentOS and Ubuntu), create the following file containing the following script.
+
+`sudo vi /var/www/html/info.php`
+
+When it's open, type
+`<?php phpinfo(); ?>`
+
+Open that in your browser using
+`http://your_server_IP_address/info.php`
+
+Review that and you'll see things I'll refer to soon. 
+
 ## Configuration and Security
 
 Open this file for editing
@@ -48,17 +63,6 @@ If you've already installed Apache, restart it.
 
 `sudo systemctl restart httpd`
 
-## Testing AKA Making Sure It Works
-In the web root (`/var/www/html/` in both CentOS and Ubuntu), create the following file containing the following script.
-
-`sudo vi /var/www/html/info.php`
-
-When it's open, 
-`<?php phpinfo(); ?>
-
-Open that in your browser using
-`http://your_server_IP_address/info.php`
-
 There are some security-related commands and features you may read or hear about that you don't need to worry about because you are a rockstar and installed PHP7 instead of an earlier version. One thing we do need to take of, however, is preventing PHP from displaying some of that information to the outside world. The more information crackers have, the more dangerous they are. 
 
 Security Through Obscurity
@@ -71,4 +75,4 @@ There's no reason to keep this file once you're finished with it, so deleting it
 
 While I used many sources, many of them contained exactly the same information and/or commands so I'm only listing the ones that contained additional information.
 
-* Mastering CentOS 7 Linux Server by 
+* Mastering CentOS 7 Linux Server by Bhaskarjyoti Roy
