@@ -186,4 +186,12 @@ http://www.servermom.org/how-to-add-new-site-into-your-apache-based-centos-serve
 
 # SECURITY
 
-Mastering CentOS Linux Server and CentOS Cookbook library books have GREAT security stuff I need to do.
+Mastering CentOS Linux Server and, to a much lesser extent, CentOS Cookbook have GREAT security stuff I need to do.
+
+Something that jumps out at me in Mastering is it says to deactivate Firewalld and install and activate iptables. That might make me happy since Firewalld has been giving me crap. To be fair and in full disclosure, I think it's troubles are due to some incompetence on the part of my host's "support."
+
+### Sources
+
+While I used many sources, many of them contained exactly the same information and/or commands so I'm only listing the ones that contained additional information.
+
+* Mastering CentOS 7 Linux Server by 
