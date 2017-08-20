@@ -28,7 +28,7 @@ We get MariaDB info if we succeeded. Let's see the databases to which `<username
 
 `SHOW DATABASES;`
 
-Use InnoDB as your engine because the default iSAM doesn't allow foreign keys and, verily verily, I say unto you, if you can't use foreign keys, why are you using a relational database?
+Use InnoDB as your engine because the default iSAM doesn't allow foreign keys and, verily verily, I say unto you, if you can't use foreign keys, why wouldst thou useth a relational database?
 
 Does MariaDB use MySQLi?
 
