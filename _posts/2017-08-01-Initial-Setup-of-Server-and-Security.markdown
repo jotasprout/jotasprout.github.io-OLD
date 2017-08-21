@@ -28,9 +28,34 @@ Instructions for Public Key Authentication
 
 Instructions for Disabling Root
 
-Instructions for installing and using firewall
+## Firewall Installation and Management
 
-Instructions for Setting Up Two-Factor Authentication
+Install it. 
+
+Start it.
+
+`sudo systemctl start firewalld.service`
+
+Sometimes you'll see commands such as the above without ".service" because CentOS (with some exceptions) adds it automatically. 
+
+Allow it to start with each reboot.
+
+`sudo systemctl enable firewalld.service`
+
+If you make a mistake, you can always reboot your server and these changes are removed unless you used the `--permanent` argument (or is it an "option"?). That also means you can test all of these without fear.
+
+Allow public web traffic. The second line is for SSL if you're using that (and you should).
+
+	firewall-cmd --zone=public --add-service=http
+	firewall-cmd --zone=public --add-service=https
+
+After testing, you'll type all that in again but add `--permanent` for each.
+
+Also allow specific ports.
+
+`firewall-cmd --zone=public --add-port=80` for your web traffic
+
+## Two-Factor Authentication
 Few things are as secure as two-factor authentication and this method is also both free and easy. For Ubuntu, it's one, short line of code. For CentOS--what I'm using--it's a wee bit (but not much) longer. 
 
 Installing Google Authenticator
