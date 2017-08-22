@@ -22,11 +22,15 @@ In CentOS, users in the "wheel" group have "super user" privileges so I'm going 
 
 If you're using another OS, you'll have to do something else. 
 
-Instructions for Ubuntu or whatever ... maybe
+## Instructions for Public Key Authentication
 
-Instructions for Public Key Authentication
+Any human or computer -- and maybe even a monkey given enough time -- can guess your password eventually. If you use a pair of keys, however, only the person with the key can get in. So, in short: don't use passwords--use keys.
 
-Instructions for Disabling Root
+## Instructions for Disabling Root
+
+Give ever user a limited amount of power. That way, even if a bad actor gets that user's credentials, they're limited in the damage they can do. 
+
+Making it impossible for anyone--even you-- to log in as root means bad guys (and gals, #LadyGoatsCanBeCrackers) can only log in as one of those limited users.
 
 ## Firewall Installation and Management
 
