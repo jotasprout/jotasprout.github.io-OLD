@@ -28,7 +28,19 @@ If you're using another OS, you'll have to do something else.
 
 Any human or computer -- and maybe even a monkey given enough time -- can guess your password eventually. If you use a pair of keys, however, only the person with the key can get in. So, in short: don't use passwords--use keys.
 
+It works like this: Your server has a public key that matches a private key kept only on your local computer. When an attempt is made to log in, the public key checks to see if there is a "matching" private key on the computer trying to log in. You'll need to do this from every computer you use to access the server -- your laptop and your desktop, for example. 
 
+First, generate a pair of keys.
+
+`ssh-keygen`
+
+You'll be asked to confirm a local storage location and create a password for using the private key. That's extra cool because if your laptop gets stolen, the thief still lacks the password to use your private key.
+
+With this next command, you'll type your username for the server which sends a copy of the public key to your user account on that server. 
+
+`ssh-copy-id username@server-ip-address`
+
+There's also manual way to copy your public key and then paste it into a document on the server if the above method doesn't work.
 
 ## Instructions for Disabling Root
 
