@@ -13,7 +13,7 @@ I couldn't help but notice that every CentOS tutorial that included LAMP setup s
 * https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql
 * https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/
 
-According to their excellent (and visually attactrive) documentation, it uses the exact same commands -- it's all SQL -- so there's no learning curve.
+They have excellent (and visually attactrive) documentation which you might want to check out because MariaDB uses a slightly different syntax so there's a wee learning curve.
 
 So, let's get to installing.
 
@@ -55,9 +55,11 @@ The following command will "run the CLI interface" (what does that mean?).
 `sudo mysql -u root -p`
 
 SIDEBAR START
+
 If you don't want to enter the password every time, put it in a file kept in the home directory. The home directory (outside of your public html directory) is where you should keep all passwords. I discuss this further in lessons when we start building an actual site and app. So, in a file (such as?) `~/.my.cnf` add:
 
 `[mysql] \npassword=password`
+
 SIDEBAR STOP
 
 ## Creating a New User
