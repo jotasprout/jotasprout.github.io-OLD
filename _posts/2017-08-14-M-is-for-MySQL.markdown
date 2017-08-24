@@ -13,7 +13,7 @@ I couldn't help but notice that every CentOS tutorial that included LAMP setup s
 * https://seravo.fi/2015/10-reasons-to-migrate-to-mariadb-if-still-using-mysql
 * https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-features/
 
-They have excellent (and visually attactrive) documentation which you might want to check out because MariaDB uses a slightly different syntax so there's a wee learning curve.
+They have excellent (and visually attactrive) documentation and MariaDB uses the same language and syntax as MySQL so there's no learning curve.
 
 So, let's get to installing.
 

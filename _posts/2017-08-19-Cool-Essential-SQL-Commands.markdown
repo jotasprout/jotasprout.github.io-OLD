@@ -11,3 +11,10 @@ How do I get rid of a database if an end user is deleting and/or resetting stuff
 If I'm running a regular/frequent query to, say, Spotify, and it needs to periodically create new stuff when it finds new stuff:
 
 `CREATE DATABASE IF NOT EXISTS <shiny-new-database>;`
+
+## Keys
+
+* PRIMARY
+* FOREIGN
+* UNIQUE
+* INDEX
