@@ -46,7 +46,7 @@ While setting up our server, we installed and enabled a firewall. Now, we need t
     sudo firewall-cmd --permanent --zone=public --add-service=https
     sudo firewall-cmd --reload
 
-What's the difference between the above and this?
+Also this? Does doing either above or below automatically do the other?
 
     sudo firewall-cmd --permanent --add-port=80/tcp
     sudo firewall-cmd --permanent --add-port=443/tcp
@@ -55,6 +55,8 @@ What's the difference between the above and this?
 Directing your browser to your server's IP address should open the Apache placeholder page. If it does, you rock--Apache is up and running.
 
 But I don't understand where that page is coming from. There's nothing in the `/var/www/html` folder (where, I'm told, I should put my site files). Even once I put a file in there and comment out the stuff in `/etc/httpd/conf.d/welcome.conf`, the default Apache page appears. 
+
+I found out where it's coming from and how to tell it not to do that. FIND THOSE STEPS AND PUT THEM HERE.
 
 Your little Apache server can host multiple web sites with different domains using virtual hosts (think about how your host divides its servers into "virtual private servers"). So, now, we'll create a virtual host for your website.
 
@@ -183,6 +185,8 @@ Now test it in your browser.
 Still need to add this material, compare, and consolidate all.
 
 http://www.servermom.org/how-to-add-new-site-into-your-apache-based-centos-server/454/
+
+SOMEWHERE, I HAD TO TELL IT WHAT THE DEFAULT PAGE IN A DIRECTORY IS ... I PUT HTM NOT JUST HTML AND I THINK I NEED TO PUT "index.php" IN THERE AS WELL.
 
 # SECURITY
 
