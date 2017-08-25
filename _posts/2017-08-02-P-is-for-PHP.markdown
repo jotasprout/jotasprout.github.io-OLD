@@ -14,9 +14,17 @@ All your current code will still work and all of your current PHP knowledge stil
 
 ## Installing PHP (and the library that supports MySQL)
 
-`sudo yum install php php-myql`
+`sudo yum install php php-mysql`
+
+But wait ... I don't want php-mysql, do I? Isn't there a new one? Or something different for MariaDB?
 
 Does that automatically install v7?
+
+Check to see it installed and the version by typing:
+
+`php --version`
+
+Is the above command correct?
 
 Let's see what we have.
 
@@ -26,9 +34,11 @@ In the web root (`/var/www/html/` in both CentOS and Ubuntu), create the followi
 `sudo vi /var/www/html/info.php`
 
 When it's open, type
+
 `<?php phpinfo(); ?>`
 
 Open that in your browser using
+
 `http://your_server_IP_address/info.php`
 
 Review that and you'll see things I'll refer to soon. 
@@ -41,7 +51,7 @@ Open this file for editing
 
 Change the following
 
-Does capitalization of values ("off" vs "Off") count?
+Does capitalization of values ("off" vs "Off") count? Test this.
 
 We don't want visitors to know anything about our code so we're going to prevent errors from being displayed publicly -- security through obfuscation -- and have them stored in logs kept elsewhere for our eyes only.
 
@@ -51,7 +61,7 @@ We don't want visitors to know anything about our code so we're going to prevent
     log_errors=On
     error_log=/var/log/httpd/php_scripts_error.log
 
-We also want to disallow remote code execution (explain what this means)
+We also want to disallow remote code execution (EXPLAIN what this means)
 
 `some code goes here`
 
@@ -59,13 +69,15 @@ Mastering recommends installing "the Suhosin advanced protection system" to prot
 
 `more code goes here`
 
-If you've already installed Apache, restart it.
+If you've already installed Apache, restart it. DOES THE ORDER OF INSTALLATION MATTER?
 
 `sudo systemctl restart httpd`
 
 There are some security-related commands and features you may read or hear about that you don't need to worry about because you are a rockstar and installed PHP7 instead of an earlier version. One thing we do need to take of, however, is preventing PHP from displaying some of that information to the outside world. The more information crackers have, the more dangerous they are. 
 
-Security Through Obscurity
+REMINDER: Apache needs to know about php index pages
+
+## Security Through Obscurity
 
 There's no reason to keep this file once you're finished with it, so deleting it completely is a good idea.
 
