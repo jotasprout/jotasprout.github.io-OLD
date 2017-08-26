@@ -92,6 +92,8 @@ Also allow specific ports.
 
 ## Installing Free SSL 
 
+What's important about this? Explain.
+
 These instructions are from https://certbot.eff.org/#centosrhel7-apache
 
 Enable the EPEL repository and the optional channel:
@@ -106,6 +108,8 @@ Install Certbot (remember, these instructions are for using Apache on CentOS)
 Now, I need to get the certificate for BOTH of the following and edit the Apache configuration accordingly.
 
 `sudo certbot --apache -d roxorsoxor.com -d www.roxorsoxor.com`
+
+Restart Apache?
 
 ADD RENEW STUFF LATER
 
