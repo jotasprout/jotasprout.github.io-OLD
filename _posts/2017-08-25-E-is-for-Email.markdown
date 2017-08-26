@@ -13,6 +13,10 @@ It looks like this is going to be super easy and I only need to install one or t
 * Dovecot is an MDA and provides the POP3 and IMAP services
 * Apache and SquirrelMail provide the Webmail service
 
+THIS one looks like the best
+
+https://www.linode.com/docs/email/postfix/email-with-postfix-dovecot-and-mariadb-on-centos-7
+
 Okay, that actually worried me so I'm reading this tutorial instead ...
 
 https://www.tecmint.com/setup-postfix-mail-server-in-ubuntu-debian/
@@ -45,3 +49,10 @@ This one has PostfixAdmin in addition to Postfix and, like others, chooses SQLit
 
 https://www.rosehosting.com/blog/how-to-set-up-a-mail-server-with-postfixadmin-on-centos-7/
 
+Maybe ...
+
+https://www.rosehosting.com/blog/mailserver-with-virtual-users-and-domains-using-postfix-and-dovecot-on-a-centos-6-vps/
+
+GOOD STUFF FOR DA LEARNINGZ
+
+https://www.centos.org/forums/viewtopic.php?t=40974
