@@ -18,3 +18,9 @@ If I'm running a regular/frequent query to, say, Spotify, and it needs to period
 * FOREIGN
 * UNIQUE
 * INDEX
+
+## CRUD
+
+* INSERT
+* SELECT
+* DELETE

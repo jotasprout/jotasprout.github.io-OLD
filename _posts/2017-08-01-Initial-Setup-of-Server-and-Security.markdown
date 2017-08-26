@@ -90,6 +90,25 @@ Also allow specific ports.
 
 `firewall-cmd --zone=public --add-port=80` for your web traffic
 
+## Installing Free SSL 
+
+These instructions are from https://certbot.eff.org/#centosrhel7-apache
+
+Enable the EPEL repository and the optional channel:
+
+	sudo yum -y install yum-utils
+	sudo yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+
+Install Certbot (remember, these instructions are for using Apache on CentOS)
+
+`sudo yum install certbot-apache`
+
+Now, I need to get the certificate for BOTH of the following and edit the Apache configuration accordingly.
+
+`sudo certbot --apache -d roxorsoxor.com -d www.roxorsoxor.com`
+
+ADD RENEW STUFF LATER
+
 ## Two-Factor Authentication
 Few things are as secure as two-factor authentication and this method is also both free and easy. For Ubuntu, it's one, short line of code. For CentOS--what I'm using--it's a wee bit (but not much) longer. 
 
