@@ -116,7 +116,17 @@ ADD RENEW STUFF LATER
 ## Two-Factor Authentication
 Few things are as secure as two-factor authentication and this method is also both free and easy. For Ubuntu, it's one, short line of code. For CentOS--what I'm using--it's a wee bit (but not much) longer. 
 
-Installing Google Authenticator
+I installed Google Authenticator from the Google Play store on my Android device.
+
+After installation, Authenticator clearly and thoroughly explains how to use it. 
+
+After enabling the two-factor authentication for my customer control panel provided by my host, it displays a QR code. I scanned with Google Authenticator and clicked the Confirm button beneath it.
+
+I "confirm" by then typing in the time-sensitive code provided by Google Authenticator. The code changed at least once while I was fiddling with my control panel -- that's how time sensitive it is. 
+
+And that's it. 
+
+It would rock if I could enable/install some sort of two-factor authentication for ssh. 
 
 Instructions found at:
 
