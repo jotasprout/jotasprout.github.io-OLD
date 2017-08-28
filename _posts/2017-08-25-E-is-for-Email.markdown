@@ -78,7 +78,19 @@ Specifically, it gave me this:
                         Sun 2017-11-05 01:59:59 EDT
                         Sun 2017-11-05 01:00:00 EST
 
-Except it was formatted more nicely in my Terminal.
+Except it was formatted more nicely in my Terminal. The article then tells you how to fix it if `NTP enabled` is set to `no`.
+
+## Hostname Horror Averted
+
+As you might see in my notes at the bottom regarding the articles I didn't use, I was really worried because many of them said I had to change my hostname which makes total sense and wouldn't have phased me if this server was dedicated to email exclusively. I'm going against a lot of online advice, however, and using my server for both web hosting and as a mail server. Many of those tutorials begin with installing the OS, Apache, etc. so I think they assume you're still doing initial setup but I couldn't be sure and I didn't want to change my hostname and screw up things I'd worked very hard to get functioning. *Mastering* states, clearly and comfortingly (yes, I'm inventing a word), "If we receive a fully-qualified domain name `server.domain` [from the command `hostname -f` in the previous paragraph) we can proceed, where `server` is the host name of our server and `domain` is where it belongs. Otherwise, we need to set one by editing the hostname configuration files."
+
+Whew! So, I'm good. That "if ... then" thing was great. But I was still worried because my `hostname -f` gives me
+
+`roxorsoxor.com` with no `mail` or even `www` in front of it and not the `server` that I'd removed because I ... didn't like it. Now, in my hostname files, I have "roxorsoxor.com" and "roxorsoxor" in one and the other has only "roxorsoxor." For whatever it's worth (I can't help but think of this as well), my Apache config file has 
+
+`ServerName www.roxorsoxor.com:80`
+
+I feel like I should add a prefix to those hostname config files ... and I think you can add multiple but the article I found a couple days ago when I first started wrestling with this mail server business that explained it best ... I can't find it. The rest are kinda confusing. 
 
 ## LINKS
 
