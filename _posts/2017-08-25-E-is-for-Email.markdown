@@ -4,7 +4,88 @@ title:  "E is for Email"
 date:   2017-08-25 10:00:00 -0500
 categories: server admin
 ---
-Moving from shared to VPS, I was really afraid I had to make the choice between not having a professional looking email address using my domain name or paying far more than I'm willing to add email to my services.
+Moving from shared to VPS, I was really afraid I had to make the choice between not having a professional looking email address using my domain name or paying far more than I'm willing to add email to my services. I found multiple articles explaining why you shouldn't do this yourself but, rather, just use an inexpensive paid service. I found lots of articles--some very informative and thorough--going through the process of installing and configuring two or six apps and at least a couple of those scared me. But, wow, chapter 4 from Mastering CentOS 7 Linux Server is amazing on this topic and I felt comfortable right away so I'm diving in. Again, I got this great book from the library and am using a free Kindle app to read it. Just renewed the book for another three weeks.
+
+While other resources list several apps we'll be installing, Mastering only mentions (at the outset at least) Postfix. Most, if not all, of the other resources included this app as it seems to come pre-installed on most systems. Postfix is a **M**ail **T**ransfer **A**gent (MTA). A pair of similar tools and acronyms you'll see a lot is **M**ail **S**ubmission **A**gent (MSA) and MDA.
+
+You'll quickly realize, as I did, that email is a surprisingly complex system -- not a single app like you may have formerly considered gMail, Mail, or Outlook.
+
+## Opening Ports So eMail Can Get Through
+
+First, I'll open several ports for things (most of which) I've heard of:
+
+* 25 for SMTP
+* 465 for Secure SMTP
+* 587 for MSA
+* 110 for POP3
+* 995 for Secure POP3
+* 143 for IMAP
+* 993 for Secure IMAP
+
+We've used this command before
+
+`sudo firewall-cmd --permanent --add-port=993/tcp`
+
+All of them were rewarded with `success` except for 25 which gave me `warning: already_enabled` which I find odd because `firewall-cmd --list-all` doesn't list it. I include thoughts and experiences like this so, if you run into similar things, you'll know you're not the only one and either it's nothing to worry about or how to respond. 
+
+After you've done all those, 
+
+`sudo firewall-cmd --reload`
+
+## Synchronize Your Watches
+
+I've wanted to say that since watching spy movies as a kid. 
+
+You might not care if your blog posts have the exact time they were written so you never bother to set the correct GMT in your preferences but, with email, that can be pretty important. **NTP** synchronizes our server's time with NTP machines around the world. 
+
+`sudo yum install ntp`
+
+The book, *Mastering*, has `install ntpd` and I wasn't the only one who had to Google why that didn't work. It's a type. See? Like I frequently state on my regular blog, you can never trust documentation. I'm not saying you can never trust documentation, but if something doesn't work--while it's usually our fault--you should always at least consider that, perhaps the documentation is incorrect. After I typed it in correctly, it installed just fine. Why did I try it if it looked funny? Because, for example, sometimes I type `firewall-cmd` with no "d" after "firewall" and sometimes I type `firewalld` so ... after it didn't work, I thought it might be a typo and [this article][this-article] confirmed that. Tecmint, by the way, has been my friend since I started this whole VPS business. 
+
+You can edit the configuration file if you need to but it already has some default servers listed. If you have your own you can add it and comment out any or all of the defaults.
+
+`sudo vi /etc/ntp.conf`
+
+I think we're well used to the cycle of "install, config, start, enable" so ... 
+
+    sudo systemctl start ntpd
+    sudo systemctl enable ntpd
+
+I tried just `ntp` for those but that didn't work. `ntpd` did.
+
+Testing is, supposedly, `ntpq -p` but my connection was refused. After Googling, I then tried `ntpstat` and received, "Unable to talk to NTP daemon. Is it running?" Then `ntpdc` gave me a `ntpdc>` prompt at which I typed `peer`  but the connection was, again, refused. Some discussions mentioned ntp requires port 123/tcp so I opened that (no love) followed by 123/udp (which I'd never heard of) as well (still no love). `ntpq -pn` also failed.
+
+And then ... 
+
+The article ["HowTo: Verify My NTP Working Or Not"][how-to] from way back in 2010 explained all those commands but concluded with, "If you are using systemd based system" (Ah-ha!) and gave me this which said everything was okey dokey:
+
+`timedatectl status`
+
+Specifically, it gave me this:
+
+    Local time:         Mon 2017-08-28 09:31:24 EDT
+    Universal time:     Mon 2017-08-28 13:31:24 UTC
+    RTC time:           n/a
+    Time zone:          EST5EDT (EDT, -0400)
+    NTP enabled:        yes
+    NTP synchronized:   yes
+    RTC in local TZ:    no
+    DST active:         yes
+    Last DST change:    DST began at
+                        Sun 2017-03-12 01:59:59 EST
+                        Sun 2017-03-12 03:00:00 EDT
+    Next DST change:    DST ends (the clock jumps one hour backwards) at
+                        Sun 2017-11-05 01:59:59 EDT
+                        Sun 2017-11-05 01:00:00 EST
+
+Except it was formatted more nicely in my Terminal.
+
+## LINKS
+
+[this-article]: https://www.tecmint.com/install-ntp-server-in-centos/
+[how-to]: https://www.cyberciti.biz/faq/linux-unix-bsd-is-ntp-client-working/
+
+RESOURCES I ULTIMATELY DIDN'T USE BUT SOME ARE EDUCATIONAL
 
 It looks like this is going to be super easy and I only need to install one or two applications.
 
@@ -56,3 +137,6 @@ https://www.rosehosting.com/blog/mailserver-with-virtual-users-and-domains-using
 GOOD STUFF FOR DA LEARNINGZ
 
 https://www.centos.org/forums/viewtopic.php?t=40974
+
+
+
