@@ -12,7 +12,7 @@ You'll quickly realize, as I did, that email is a surprisingly complex system --
 
 ## Opening Ports So eMail Can Get Through
 
-First, I'll open several ports for things (most of which) I've heard of:
+First, I'll open the several standard email ports (most of which) I've heard of:
 
 * 25 for SMTP
 * 465 for Secure SMTP
@@ -80,7 +80,7 @@ Specifically, it gave me this:
 
 Except it was formatted more nicely in my Terminal. The article then tells you how to fix it if `NTP enabled` is set to `no`.
 
-## Hostname Horror Averted
+## Hostname Horror Averted (I Thought)
 
 As you might see in my notes at the bottom regarding the articles I didn't use, I was really worried because many of them said I had to change my hostname which makes total sense and wouldn't have phased me if this server was dedicated to email exclusively. I'm going against a lot of online advice, however, and using my server for both web hosting and as a mail server. Many of those tutorials begin with installing the OS, Apache, etc. so I think they assume you're still doing initial setup but I couldn't be sure and I didn't want to change my hostname and screw up things I'd worked very hard to get functioning. *Mastering* states, clearly and comfortingly (yes, I'm inventing a word), "If we receive a fully-qualified domain name `server.domain` [from the command `hostname -f` in the previous paragraph) we can proceed, where `server` is the host name of our server and `domain` is where it belongs. Otherwise, we need to set one by editing the hostname configuration files."
 
@@ -91,6 +91,16 @@ Whew! So, I'm good. That "if ... then" thing was great. But I was still worried 
 `ServerName www.roxorsoxor.com:80`
 
 I feel like I should add a prefix to those hostname config files ... and I think you can add multiple but the article I found a couple days ago when I first started wrestling with this mail server business that explained it best ... I can't find it. The rest are kinda confusing. 
+
+I keep thinking I should set up multiple virtual hosts like I discussed in an earlier post. But my site is working now and ... gosh, I just don't want to break stuff and keep moving backward. 
+
+Yep, this is the spot at which I keep getting stuck. All this DNS stuff has been my nightmare since I started. A giant whiteboard and a workspace all my own would SO help keep my work and thoughts organized. Ah, to have my own desk, my own bookshelves ... *heavy sigh* ...
+
+I have a gut instinct that it's all easier than it seems but the conflicting, confusing resources I find cast doubts. 
+
+I just don't know if what I have will work and, if I need to change something, what do I need to change? Can I just plop "server" at the front? Does it have to be "mail"? I have pages of handwritten questions. 
+
+The top "best" tutorial at the bottom simply uses "example.com" with no "host" before it. I just ... does that mean I'm okay? I wish I had at least one person I could ask questions. Do I have to set up an MX record? That's a whole other abyss filled with cans of worm-questions.
 
 ## LINKS
 
