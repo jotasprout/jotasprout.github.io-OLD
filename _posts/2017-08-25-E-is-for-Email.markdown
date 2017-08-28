@@ -100,7 +100,17 @@ I have a gut instinct that it's all easier than it seems but the conflicting, co
 
 I just don't know if what I have will work and, if I need to change something, what do I need to change? Can I just plop "server" at the front? Does it have to be "mail"? I have pages of handwritten questions. 
 
-The top "best" tutorial at the bottom simply uses "example.com" with no "host" before it. I just ... does that mean I'm okay? I wish I had at least one person I could ask questions. Do I have to set up an MX record? That's a whole other abyss filled with cans of worm-questions.
+The top "best" tutorial at the bottom simply uses "example.com" with no "host" before it. I just ... does that mean I'm okay? I wish I had at least one person I could ask questions. Do I have to set up an MX record? That's a whole other abyss filled with cans of worm-questions. One resource shows an example where the hostname in the MX record is "@" and the server/domain address actually has "mx" in it!
+
+In my hosts DNS Management it says "these records are also known as sub-domains." Really? Is that really all these are? That would really piss me off. But if I install some webmail app, will it want/need/create a "mail" subdomain and any "mail" subdomain I've created screw with it?
+
+So, the hostname has to be "fully qualified" and one resource says that means it includes the domain name ("roxorsoxor" in my case) but they all refer to the "host" which is that "prefix" so ... the hostname has to have a hostname in it? This reminds me that nameservers refer to nameservers so make sure you register your nameservers before you create the nameservers and, by the way, how to do you register a nameserver that you haven't created? Again, what does that prefix have to be? Can it be "poop.roxorsoxor.com"?
+
+I'm putting "mailtime" for Host Name (two words here, not one ...significant?) and "roxorsoxor.com" for Address (why does it have to be different EVERYWHERE?). Let's see what breaks now and/or later. 
+
+## Installing Postfix
+
+
 
 ## LINKS
 
