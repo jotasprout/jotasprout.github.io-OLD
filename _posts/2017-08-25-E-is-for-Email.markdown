@@ -132,6 +132,46 @@ Like other configurations, this is just uncommenting and changing some lines.
 
 `myhostname = mailtime.roxorsoxor.com`
 
+As it turns out, the CentOS 7 Cookbook has oodles of yummy information that Mastering does not including a simple up-front test to see if Postfix is already installed, running, and working. First, you send a local user a message
+
+`echo "this is a test" | sendmail username`
+
+and check the log to see if it worked:
+
+`tail -f /var/log/maillog`
+
+but that last command told me maillog doesn’t exist. Google told me, among other things, try restarting syslog. It turns out, that wasn’t even installed!
+
+A quick
+
+`yum -y install rsyslog`
+
+fixed that …
+
+well, I also …
+
+http://www.itzgeek.com/how-tos/linux/centos-how-tos/setup-syslog-server-on-centos-7-rhel-7.html
+
+but I got the stuff described in this
+
+https://support.plesk.com/hc/en-us/articles/214528345-Mailserver-not-working-Warning-SASL-Connect-to-private-auth-failed
+
+so I did the solutions provided in that and tried again
+
+That didn’t work (see notes) so I uncommented that line and tried this instead (which maybe I should have tried first)
+
+https://www.howtoforge.com/postfix-dovecot-warning-sasl-connect-to-private-auth-failed-no-such-file-or-directory
+
+that totally didn’t work so I found and tried this
+
+https://serverfault.com/questions/628966/dovecot-error-unknown-setting-unix-listener
+
+and now dovecot works so I’ll try the test mail message again
+
+totally worked! So now I’m going to send a message to my gmail account …
+
+KICK-FREAKING-ASS! It worked! It went into my spam folder but it worked! And most of these tutes and such include stuff so your messages don’t go to spam and you don’t get blacklisted so I am on my way!
+
 ## LINKS
 
 [this-article]: https://www.tecmint.com/install-ntp-server-in-centos/
