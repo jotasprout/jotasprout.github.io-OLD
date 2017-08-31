@@ -108,9 +108,29 @@ So, the hostname has to be "fully qualified" and one resource says that means it
 
 I'm putting "mailtime" for Host Name (two words here, not one ...significant?) and "roxorsoxor.com" for Address (why does it have to be different EVERYWHERE?). Let's see what breaks now and/or later. 
 
-## Installing Postfix
+## Installing Postfix and Dovecot
 
+* Postfix is an MTA and provides the SMTP service.
+* Dovecot is an MDA and provides the POP3 and IMAP services
 
+The default version of Postfix doesn't support MariaDB, the database app I'm using, so I need to get a version from the CentOSPlus repo. Since we're doing that, we have to make sure our version isn't overridden when updating stuff from regular repos. We'll identify and exclude postfix from updates from the regular repo.
+
+`sudo vi /etc/yum.repos.d/CentOS-Base.repo`
+
+and add `exclude=postfix` at the bottom of `[base]` and `[updates]`.
+
+Now for the actual installation.
+
+    sudo yum --enablerepo=centosplus install postfix
+    sudo yum install dovecot mariadb-server dovecot-mysql
+
+## Configuring Postfix
+
+Like other configurations, this is just uncommenting and changing some lines.
+
+*Mastering* says we'll define our mail server hostname. Personally, I thought we already did that. "Define," that is. Maybe I'm already screwing this up but I'm putting ...
+
+`myhostname = mailtime.roxorsoxor.com`
 
 ## LINKS
 
@@ -121,9 +141,7 @@ RESOURCES I ULTIMATELY DIDN'T USE BUT SOME ARE EDUCATIONAL
 
 It looks like this is going to be super easy and I only need to install one or two applications.
 
-* postfix is an MTA and provides the SMTP service
 * mailx 
-* Dovecot is an MDA and provides the POP3 and IMAP services
 * Apache and SquirrelMail provide the Webmail service
 
 THIS one looks like the best
