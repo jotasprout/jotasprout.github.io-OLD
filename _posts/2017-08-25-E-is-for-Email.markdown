@@ -202,7 +202,9 @@ I could consider the temporary solution of coding something that uses the comman
 
 I should try sending a message to me from this new account from the command line ...
 
+Successfully sent from local <new-user> to local <first-user> and from local <new-user> to my gMail account. Both worked. <new-user> shows up as that user (re: questions below). Also notable is all emails are going directly into my Inbox instead of spam. That may be because I trained gMail that mail from roxorsoxor.com isn't spam so I definitely still need to finish all this email shizzle so others can receive email without any problem.
 
+Replying to <new-user> doesn't get returned as undeliverable but checking `mail` as <new-user> still shows `No mail for <new-user>`.
 
 ## No, Now Wait a Second ...
 
@@ -220,7 +222,8 @@ Am I finished with Postfix and Dovecot?
 ## Questions
 
 * I can send mail but can I receive it?. Log says I've sent mail from root to local <user> but <user> says (I think) there is no new mail
-* Sending from root to my gMail account works (and I receive it)
+* Sending from root and <user> to my gMail account works (and I receive it)
+* Sending from <new-user> to <first-user> seems to work but neither root nor <first-user> have it in their "inbox"
 * How do I read email on the command line?
 * How do I configure a client like Thunderbird to read these emails?
 * Whether I send email from root or <user>, it says it is sent from <user>@roxorsoxor.com 
