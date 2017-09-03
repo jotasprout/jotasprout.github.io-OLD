@@ -192,6 +192,8 @@ When I saw the errors I remembered something I (think I) read--you can only send
 
 Each time I test this, I have to go into the table that holds the user list and delete that new, temporary user so I can try adding it again from scratch. Checking the table and deleting from it (and logging into and using MySQL/MariaDB) from the command line is delightfully good practice.
 
+I could consider the temporary solution of coding something that uses the command line to send the email but I don't want to get too far off the track of learning what I'm learning. Stay focused, Sky-grasshopper.
+
 ## LINKS
 
 [this-article]: https://www.tecmint.com/install-ntp-server-in-centos/

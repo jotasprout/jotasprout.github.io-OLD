@@ -52,3 +52,9 @@ You'll then see the database name replace "none" in the prompt.
 * DELETE
 
 A database is made of multiple tables. Think of an Excel workbook with multiple pages, each containing a different spreadsheet. The workbook is a database and each spreadsheet is a table. Now, imagine the spreadsheets are connected somehow--the totals from one spreadsheet become the line items in another spreadsheet on a different page for example. Those spreadsheets are related. A relational database is a database in which the tables are related or connected.  
+
+Having said all that, whenever we give our database a command, we must tell it which table we're talking about. In this case, we want a list of all the comic book characters in a table called "characters."
+
+`SELECT * FROM characters`
+
+You're already in the "comic-books" database, so you don't need to specify that.
