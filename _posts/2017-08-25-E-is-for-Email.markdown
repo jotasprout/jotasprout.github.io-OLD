@@ -204,7 +204,9 @@ I should try sending a message to me from this new account from the command line
 
 Successfully sent from local <new-user> to local <first-user> and from local <new-user> to my gMail account. Both worked. <new-user> shows up as that user (re: questions below). Also notable is all emails are going directly into my Inbox instead of spam. That may be because I trained gMail that mail from roxorsoxor.com isn't spam so I definitely still need to finish all this email shizzle so others can receive email without any problem.
 
-Replying to <new-user> doesn't get returned as undeliverable but checking `mail` as <new-user> still shows `No mail for <new-user>`.
+Replying to <new-user> doesn't get returned as undeliverable but checking `mail` as <new-user> still shows `No mail for <new-user>`. There are items listed in ~/maildir, however. 
+
+According to [this article at archlinux][archlinux], "mailtime" needs to be an A record as well as an MX record. That would have been nice to know, so I've done that now.
 
 ## No, Now Wait a Second ...
 
@@ -230,14 +232,23 @@ Am I finished with Postfix and Dovecot?
 
 ## Next To Do
 
+* Install php-imap
+* Edit php.ini for imap.so and other stuff
+* Install PostfixAdmin
+* Edit PostfixAdmin config file (this and previous per [this article at archlinux][archlinux] 
 * Install SWAKS and use it to test using Postfix server remotely per *Cookbook*
 * Setup a MariaDB database for the mail server per *Mastering*
 * Setup TLS/SSL encryption for SMTP communication per *Cookbook*
+
+Need to check out
+
+https://wiki.archlinux.org/index.php/Postfix#Local_mail
 
 ## LINKS
 
 [this-article]: https://www.tecmint.com/install-ntp-server-in-centos/
 [how-to]: https://www.cyberciti.biz/faq/linux-unix-bsd-is-ntp-client-working/
+[archlinux]: https://wiki.archlinux.org/index.php/Postfix
 
 RESOURCES I ULTIMATELY DIDN'T USE BUT SOME ARE EDUCATIONAL
 
