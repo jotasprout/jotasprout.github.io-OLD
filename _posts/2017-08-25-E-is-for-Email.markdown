@@ -172,6 +172,10 @@ totally worked! So now I’m going to send a message to my gmail account …
 
 KICK-FREAKING-ASS! It worked! It went into my spam folder but it worked! And most of these tutes and such include stuff so your messages don’t go to spam and you don’t get blacklisted so I am on my way!
 
+## Testing dovecot and Stakeout Registration with a New User
+
+Just created a new user so I can rebuild/recreate the email registration component of Stakeout. Even if it goes to spam, I can click the link and register new users in Stakeout again and we're a major step closer to being back up to speed. I need to get back to where I was at the old host so I can start making improvements and adding new features. 
+
 ## LINKS
 
 [this-article]: https://www.tecmint.com/install-ntp-server-in-centos/
