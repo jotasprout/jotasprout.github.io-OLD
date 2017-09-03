@@ -172,6 +172,8 @@ totally worked! So now I’m going to send a message to my gmail account …
 
 KICK-FREAKING-ASS! It worked! It went into my spam folder but it worked! And most of these tutes and such include stuff so your messages don’t go to spam and you don’t get blacklisted so I am on my way!
 
+I noticed that using both `mail` and `sendmail` worked equally well. I don't know if there's a difference.
+
 ## Testing dovecot and Stakeout Registration with a New User
 
 Just created a new user so I can rebuild/recreate the email registration component of Stakeout. Even if it goes to spam, I can click the link and register new users in Stakeout again and we're a major step closer to being back up to speed. I need to get back to where I was at the old host so I can start making improvements and adding new features. 
@@ -180,6 +182,10 @@ These errors are from the app and php:
 
     SMTP -> ERROR: Failed to connect to server: php_network_getaddresses: getaddrinfo failed: Name or service not known (0)
     SMTP Error: Could not connect to SMTP host. 
+
+Is that related to this excerpt from *Cookbook*?
+
+"It is very important to set [the FQDN] up correctly because this information will be used to authenticate the Postfix server when connecting to the other MTAs or mail clients. MTAs check the FQDN which has been announched by their partner and some even refuse to connect if it is not provided or if it differs from the real DNS domain name of the server."
 
 The app still tells me it sent an email to the address in the registration form so I need to make sure I add some code that has some more conditions for that. At present, it says it sent the email because of two conditions:
 
@@ -193,6 +199,37 @@ When I saw the errors I remembered something I (think I) read--you can only send
 Each time I test this, I have to go into the table that holds the user list and delete that new, temporary user so I can try adding it again from scratch. Checking the table and deleting from it (and logging into and using MySQL/MariaDB) from the command line is delightfully good practice.
 
 I could consider the temporary solution of coding something that uses the command line to send the email but I don't want to get too far off the track of learning what I'm learning. Stay focused, Sky-grasshopper.
+
+I should try sending a message to me from this new account from the command line ...
+
+
+
+## No, Now Wait a Second ...
+
+Am I finished with Postfix and Dovecot?
+
+* I configured Postfix per *Cookbook* and *Mastering*
+* Installed and configured NTP per *Mastering*
+
+## The Postfix MTA
+
+* Receives "incombing e-mails from mail clients or other remote MTA servers using the SMTP protocol" - *Cookbook*
+* "Delivers the mail to a local mailbox installed on the server (either in the filesystem or in a database system such as Maria DB)" - *Cookbook*
+* "Cannot transfer the mails from its local mailboxes to the end users. Here we need another type of MTA called **delivery agent**, which uses different mail protocols, such as IMAP or POP3." - *Cookbook*
+
+## Questions
+
+* I can send mail but can I receive it?. Log says I've sent mail from root to local <user> but <user> says (I think) there is no new mail
+* Sending from root to my gMail account works (and I receive it)
+* How do I read email on the command line?
+* How do I configure a client like Thunderbird to read these emails?
+* Whether I send email from root or <user>, it says it is sent from <user>@roxorsoxor.com 
+
+## Next To Do
+
+* Install SWAKS and use it to test using Postfix server remotely per *Cookbook*
+* Setup a MariaDB database for the mail server per *Mastering*
+* Setup TLS/SSL encryption for SMTP communication per *Cookbook*
 
 ## LINKS
 

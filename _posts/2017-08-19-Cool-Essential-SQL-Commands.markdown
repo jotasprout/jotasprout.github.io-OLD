@@ -55,6 +55,18 @@ A database is made of multiple tables. Think of an Excel workbook with multiple 
 
 Having said all that, whenever we give our database a command, we must tell it which table we're talking about. In this case, we want a list of all the comic book characters in a table called "characters."
 
-`SELECT * FROM characters`
+`SELECT * FROM characters;`
 
-You're already in the "comic-books" database, so you don't need to specify that.
+You're already in the "comic-books" database, so you don't need to specify that. 
+
+If I only want to see Marvel characters, I could say
+
+`SELECT * FROM characters WHERE publisher = 'Marvel';`
+
+If I wanted to delete all the DC characters, I would say
+
+`DELETE * FROM characters WHERE publisher = 'DC';`
+
+If I'm trying to write some code for use with the table or want to create a similar table, I need to know details about the columns such as what type of data it holds (text, date, integer, boolean) and how much data it can hold. The command for that is surprisingly human-friendly.
+
+`DESCRIBE characters;`
