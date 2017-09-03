@@ -7,14 +7,17 @@ categories: server admin
 We're going to do two things. First, make sure we can access it and do whatever we want. Second, make sure nobody else can access it.
 
 Initially, you'll login as root--then, neither you nor anyone else should do that again. Login in via this humble command
+
 `ssh root@Ye.Olde.IP.Address`
 
 Until your domain is all setup and configured, you can use your IP address as shown above.
 
 Create an obscenely unique new username with a ridiculously complicated password. Here, my new username is "user1."
-`adduser user1
-passwd user1`
-It'll ask you for your pw then ask again in case you have fumble fingers.
+
+	adduser user1
+	passwd user1
+
+It'll ask you for your password then ask again in case you have fumble fingers.
 
 ### Grant Yourself SuperPowers
 
