@@ -12,6 +12,32 @@ If I'm running a regular/frequent query to, say, Spotify, and it needs to period
 
 `CREATE DATABASE IF NOT EXISTS <shiny-new-database>;`
 
+## Logging Into MariaDB and/or MySQL
+
+`mysql -u <username> -p;`
+
+`-u` is for "hey, here comes a username" and `-p` is for "ask for my password." Oh, and never, ever forget the semi-colon. As with other languages, it's the most obvious screwup and the last one you'll remember as you're slowly driven insane.
+
+You'll see a prompt like this:
+
+`[MariaDB [(none)]>`
+
+after which you type commands.
+
+## "Logging Into" a Specific Database
+
+You may be a database user, but you don't have permission to use all databases. To see the databases to which you are assigned:
+
+`SHOW DATABASES;`
+
+To use one of those databases (suppose it's called "comic-books"):
+
+`USE <comic-books>;`
+
+You'll then see the database name replace "none" in the prompt.
+
+`[MariaDB [<comic-books>]>`
+
 ## Keys
 
 * PRIMARY
@@ -24,3 +50,5 @@ If I'm running a regular/frequent query to, say, Spotify, and it needs to period
 * INSERT
 * SELECT
 * DELETE
+
+A database is made of multiple tables. Think of an Excel workbook with multiple pages, each containing a different spreadsheet. The workbook is a database and each spreadsheet is a table. Now, imagine the spreadsheets are connected somehow--the totals from one spreadsheet become the line items in another spreadsheet on a different page for example. Those spreadsheets are related. A relational database is a database in which the tables are related or connected.  

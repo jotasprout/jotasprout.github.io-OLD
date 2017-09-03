@@ -176,6 +176,22 @@ KICK-FREAKING-ASS! It worked! It went into my spam folder but it worked! And mos
 
 Just created a new user so I can rebuild/recreate the email registration component of Stakeout. Even if it goes to spam, I can click the link and register new users in Stakeout again and we're a major step closer to being back up to speed. I need to get back to where I was at the old host so I can start making improvements and adding new features. 
 
+These errors are from the app and php:
+
+    SMTP -> ERROR: Failed to connect to server: php_network_getaddresses: getaddrinfo failed: Name or service not known (0)
+    SMTP Error: Could not connect to SMTP host. 
+
+The app still tells me it sent an email to the address in the registration form so I need to make sure I add some code that has some more conditions for that. At present, it says it sent the email because of two conditions:
+
+1. It successfully added a tentative user to the app
+2. It at least tried to send an email
+
+I need to add a condition that checks for successful SMTP shizzle.
+
+When I saw the errors I remembered something I (think I) read--you can only send messages to external addresses from locally.
+
+Each time I test this, I have to go into the table that holds the user list and delete that new, temporary user so I can try adding it again from scratch. Checking the table and deleting from it (and logging into and using MySQL/MariaDB) from the command line is delightfully good practice.
+
 ## LINKS
 
 [this-article]: https://www.tecmint.com/install-ntp-server-in-centos/
