@@ -214,7 +214,7 @@ Replying to <new-user> doesn't get returned as undeliverable but checking `mail`
 
 According to [this article at archlinux][archlinux], "mailtime" needs to be an A record as well as an MX record. That would have been nice to know, so I've done that now.
 
-## No, Now Wait a Second ...
+### No, Now Wait a Second ...
 
 Am I finished with Postfix and Dovecot?
 
@@ -227,7 +227,7 @@ Am I finished with Postfix and Dovecot?
 * "Delivers the mail to a local mailbox installed on the server (either in the filesystem or in a database system such as Maria DB)" - *Cookbook*
 * "Cannot transfer the mails from its local mailboxes to the end users. Here we need another type of MTA called **delivery agent**, which uses different mail protocols, such as IMAP or POP3." - *Cookbook*
 
-## Questions
+### Questions
 
 * I can send mail but can I receive it?. Log says I've sent mail from root to local <user> but <user> says (I think) there is no new mail
 * Sending from root and <user> to my gMail account works (and I receive it)
@@ -236,7 +236,7 @@ Am I finished with Postfix and Dovecot?
 * How do I configure a client like Thunderbird to read these emails?
 * Whether I send email from root or <user>, it says it is sent from <user>@roxorsoxor.com 
 
-## Next To Do
+### Next To Do
 
 * Install php-imap
 * Edit php.ini for imap.so and other stuff
@@ -246,7 +246,11 @@ Am I finished with Postfix and Dovecot?
 * Setup a MariaDB database for the mail server per *Mastering*
 * Setup TLS/SSL encryption for SMTP communication per *Cookbook*
 
-Need to check out
+## Setting Up TLS encryption for SMTP
+
+Wow, I really, really wish I'd done this a couple days ago before I spent that time troubleshooting what was going wrong with PHPMailer. Nothing was going wrong with it and, while I did learn a bunch while on this wild bantha chase, well ... I may be glad I did learn that stuff, so, anyway ... 
+
+### Need to check out
 
 https://wiki.archlinux.org/index.php/Postfix#Local_mail
 
