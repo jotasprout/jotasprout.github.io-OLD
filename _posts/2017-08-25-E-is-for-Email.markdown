@@ -128,9 +128,15 @@ Now for the actual installation.
 
 Like other configurations, this is just uncommenting and changing some lines.
 
+`sudo vi /etc/postfix/main.cf`
+
 *Mastering* says we'll define our mail server hostname. Personally, I thought we already did that. "Define," that is. Maybe I'm already screwing this up but I'm putting ...
 
 `myhostname = mailtime.roxorsoxor.com`
+
+After any changes to that file or `master.cf` execute this command
+
+`postfix reload`
 
 As it turns out, the CentOS 7 Cookbook has oodles of yummy information that Mastering does not including a simple up-front test to see if Postfix is already installed, running, and working. First, you send a local user a message
 
