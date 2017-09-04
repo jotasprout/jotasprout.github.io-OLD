@@ -311,5 +311,22 @@ GOOD STUFF FOR DA LEARNINGZ
 
 https://www.centos.org/forums/viewtopic.php?t=40974
 
+https://serverfault.com/questions/474095/cant-connect-to-smtp-over-587?rq=1
 
+https://unix.stackexchange.com/questions/187807/setting-up-a-relay-port-for-postfix-smtp-on-centos-7
 
+https://www.faqforge.com/linux/how-to-enable-port-587-submission-in-postfix/
+
+https://access.redhat.com/solutions/60803
+
+http://www.krizna.com/centos/setup-mail-server-centos-7/
+
+https://wiki.zimbra.com/wiki/Outgoing_SMTP_Authentication
+
+http://forums.sentora.org/showthread.php?tid=1130
+
+https://support.rackspace.com/how-to/open-ports-in-the-linux-firewall-to-access-pop-and-imap-mail-servers/
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-a-postfix-e-mail-server-with-dovecot
+
+http://www.postfix.org/TLS_README.html
