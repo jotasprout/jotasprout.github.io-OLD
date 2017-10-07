@@ -6,7 +6,7 @@ categories: server admin
 ---
 Moving from shared to VPS, I was really afraid I had to make the choice between not having a professional looking email address using my domain name or paying far more than I'm willing to add email to my services. I found multiple articles explaining why you shouldn't do this yourself but, rather, just use an inexpensive paid service. I found lots of articles--some very informative and thorough--going through the process of installing and configuring two or six apps and at least a couple of those scared me. But, wow, chapter 4 from Mastering CentOS 7 Linux Server is amazing on this topic and I felt comfortable right away so I'm diving in. Again, I got this great book from the library and am using a free Kindle app to read it. Just renewed the book for another three weeks.
 
-While other resources list several apps we'll be installing, Mastering only mentions (at the outset at least) Postfix. Most, if not all, of the other resources included this app as it seems to come pre-installed on most systems. Postfix is a **M**ail **T**ransfer **A**gent (MTA). A pair of similar tools and acronyms you'll see a lot is **M**ail **S**ubmission **A**gent (MSA) and MDA.
+While other resources list several apps we'll be installing, Mastering only mentions (at the outset at least) Postfix. Most, if not all, of the other resources included this app as it seems to come pre-installed on most systems. 
 
 You'll quickly realize, as I did, that email is a surprisingly complex system -- not a single app like you may have formerly considered gMail, Mail, or Outlook.
 
@@ -110,8 +110,10 @@ I'm putting "mailtime" for Host Name (two words here, not one ...significant?) a
 
 ## Installing Postfix and Dovecot
 
-* Postfix is an MTA and provides the SMTP service.
-* Dovecot is an MDA and provides the POP3 and IMAP services
+* Postfix is a **M**ail **T**ransfer **A**gent (MTA) and provides the SMTP service.
+* Dovecot is an MDA and provides the POP3 and IMAP services (where did I get this? *Cookbook* says Dovecot is an MTA)
+
+Another acronym you'll see a lot is **M**ail **S**ubmission **A**gent (MSA).
 
 The default version of Postfix doesn't support MariaDB, the database app I'm using, so I need to get a version from the CentOSPlus repo. Since we're doing that, we have to make sure our version isn't overridden when updating stuff from regular repos. We'll identify and exclude postfix from updates from the regular repo.
 
@@ -231,7 +233,7 @@ Am I finished with Postfix and Dovecot?
 
 ### Using mailx
 
-After logging in, type the following (if you've named the relevant directory "Maildir" and it is in your home directory):
+After logging in locally, type the following (if you've named the relevant directory "Maildir" and it is in your home directory):
 
 `mailx -f ~/Maildir`
 
@@ -239,7 +241,7 @@ This returns a list of your most recent messages. Then, referring to the number 
 
 HTML emails are not fun using this method.
 
-### Using a Client Like Thunderbird
+### Using a Remote Client Like Thunderbird
 
 Setting this up may be neither easy nor fun (like for me with my new VPS). It may be super easy (like for me on my old shared hosting server).
 
