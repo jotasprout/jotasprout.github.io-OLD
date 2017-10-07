@@ -227,6 +227,22 @@ Am I finished with Postfix and Dovecot?
 * "Delivers the mail to a local mailbox installed on the server (either in the filesystem or in a database system such as Maria DB)" - *Cookbook*
 * "Cannot transfer the mails from its local mailboxes to the end users. Here we need another type of MTA called **delivery agent**, which uses different mail protocols, such as IMAP or POP3." - *Cookbook*
 
+## Checking Your Email
+
+### Using mailx
+
+After logging in, type the following (if you've named the relevant directory "Maildir" and it is in your home directory):
+
+`mailx -f ~/Maildir`
+
+This returns a list of your most recent messages. Then, referring to the number in the second column ("4" for example), type that number and press Return or Enter.
+
+HTML emails are not fun using this method.
+
+### Using a Client Like Thunderbird
+
+Setting this up may be neither easy nor fun (like for me with my new VPS). It may be super easy (like for me on my old shared hosting server).
+
 ### Questions
 
 * I can send mail but can I receive it?. Log says I've sent mail from root to local <user> but <user> says (I think) there is no new mail
