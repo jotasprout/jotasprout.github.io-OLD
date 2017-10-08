@@ -229,6 +229,43 @@ Am I finished with Postfix and Dovecot?
 * "Delivers the mail to a local mailbox installed on the server (either in the filesystem or in a database system such as Maria DB)" - *Cookbook*
 * "Cannot transfer the mails from its local mailboxes to the end users. Here we need another type of MTA called **delivery agent**, which uses different mail protocols, such as IMAP or POP3." - *Cookbook*
 
+## Problems with Postfix
+
+Both CentOS 7 books I've been using consistently say to use **systemctl** for various tasks. Most of the time this seems to work just fine, but with **Postfix**, it seems to cause some problems. 
+
+For example, DO NOT USE:
+
+`systemctl restart postfix.service`
+
+INSTEAD use:
+
+`postfix reload` or `postfix stop` then `postfix start`.
+
+According to what I after copying various error messages from my terminal and pasting them into Google, using `systemctl` with postfix creates (hidden) users that start using Postfix's **master.lock** file, preventing it from being used and/or modified elsewhere. Specifically, this prevents you from (re)starting Postfix after you make config changes, for example.
+
+### Ye Olde Solution
+
+First, I should mention that some solutions (found on StackOverflow) said to do a similar process as the following with a **master.pid** file but both times I've had this problem, I couldn't find such a file. However, it worked as outlined below with a **master.lock** file.
+
+1. Confirm the file (whichever, I suppose) exists.
+
+`ls -l /var/lib/postfix/master.lock`
+
+2. If it exists, find the process using it.
+
+`fuser /var/lib/postfix/master.lock`
+
+That returns a number such as `666`.
+
+3. Kill that process.
+
+`kill 666`
+
+4. Start Postfix this way (and confirm it worked).
+
+    postfix start
+    postfix status
+
 ## Checking Your Email
 
 ### Using mailx
