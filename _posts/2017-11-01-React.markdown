@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "React Basics"
+date:   2017-11-01 13:30:00 -0500
+categories: jekyll update
+---
+Starting the 30 Days of React book. Today is day #1. What I learned and/or reviewed today was:
+
+React is a javascript framework.
+
+You use React by including javascript files in your html.
+
+react.min.js
+react-dom.min.js
+babel.min.js
+
+React apps are made of components. Components can contain other components. Components are "composable."
+
+You use React "exports" in your app's javascript.
+
+Babel, I think translates the ract stuff into the app's results/products from React's "virtual DOM" to the actual DOM.
