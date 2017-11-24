@@ -16,3 +16,12 @@ In less than a couple minutes, the red band across the top of my gMail page appe
 * Upgraded to a paid GitHub account and made that repo private
 * Changed the database user's password for that app
 * Setup two-factor authentication for my host's control panel
+
+November 24, 2017
+
+I can't believe I haven't updated this post since I wrote it three months ago.
+
+Just renewed my Let's Encrypt certificates and verified their status per Step #5 in Digital Ocean's ["How to Secure Apache with Let's Encrypt on CentOS 7"][letsencrypt] tutorial. That super-easy verification gave me an awesome report of all the things it tested and how my site (or just the certificates or both?) did. For example, which attacks my site is and is not vulnerable to. 
+
+[letsencrypt]:
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-centos-7
