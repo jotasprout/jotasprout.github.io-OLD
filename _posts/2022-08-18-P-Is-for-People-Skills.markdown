@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "P is for People Skills"
+date:   2022-08-19 6:00:00 -0500
+categories: Soft Skills
+---
+
 # P is for People Skills
 
 I woke up about 2:30 AM EST. 

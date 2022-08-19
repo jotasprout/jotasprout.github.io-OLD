@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "GM Is for GitHub Markdown"
+date:   2022-08-19 5:00:00 -0500
+categories: Mardown, Markup
+---
 # GM Is for GitHub Markdown
 I lose every single cheatsheet I write for myself so this is going here. I did not write this. I stole it from Adam Pritchard who compiled and summarized other sources I'll link to at the bottom.
 
