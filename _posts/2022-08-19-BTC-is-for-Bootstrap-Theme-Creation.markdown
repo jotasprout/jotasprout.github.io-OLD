@@ -19,12 +19,13 @@ My understanding is that I can take what I need from a complete theme so I've ch
 
 It can't possible be as easy as it sounds so I've gathered these resources and tutorials to help me.
 
-- [Demo for a similar theme from the same site](https://demo.themefisher.com/navigator/)
-- [Official Bootstrap Theming Documenation](https://getbootstrap.com/docs/4.1/getting-started/theming/)
-- [How to Create a Custom Boostrap Theme from Scratch](https://designmodo.com/create-bootstrap-theme/)
 - [Bootstrap Builder](https://bootstrap.build/)
+- [Boostrap Magic 4.0: Create Your Bootstrap 4.0 Themes Easily](https://pikock.github.io/bootstrap-magic/index.html)
+- [Customize Bootstrap with the theme kit: How to build your own Bootstrap themes](https://hackerthemes.com/kit/)
+- [How to Create a Custom Boostrap Theme from Scratch](https://designmodo.com/create-bootstrap-theme/)
 - [How to Create Your Custom Bootstrap Theme](https://levelup.gitconnected.com/create-your-bootstrap-theme-4228aca9117a)
 - [How to Create Boostrap Theme from Scratch](https://www.webnots.com/beginners-guide-to-create-bootstrap-theme-from-scratch/)
-- [Boostrap Magic 4.0: Create Your Bootstrap 4.0 Themes Easily](https://pikock.github.io/bootstrap-magic/index.html)
+- [Official Bootstrap Theming Documenation](https://getbootstrap.com/docs/4.1/getting-started/theming/)
 - [Official Bootstrap Guide to Customizing Themes](https://themes.getbootstrap.com/guide/)
-- [Customize Bootstrap with the theme kit: How to build your own Bootstrap themes](https://hackerthemes.com/kit/)
+
+- [Demo for a similar theme from the same site](https://demo.themefisher.com/navigator/)
