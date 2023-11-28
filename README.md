@@ -1,3 +1,3 @@
-# jotasprout.github.io
+# Software Development Portfolio
 
-Portfolio for software development.
+[Go to this GitHub Pages site.](https://jotasprout.github.io/)
