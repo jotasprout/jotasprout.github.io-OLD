@@ -1,0 +1,90 @@
+# WhatATheme
+markdown: kramdown
+
+# URL of the Site
+url: 'https://gasarafin.github.io'
+# Base URL of the Site (i.e., Name of the Repository in which the Site is hosted)
+baseurl:
+
+# Title of the Site
+title: Gregory A Sarafin
+# Description of the Site
+description: Full-Stack Engineer | Project Manager | IoT Developer
+# URL of Image of the Site
+site-image: /assets/images/site.jpg
+# Keywords of the Site
+site-keywords: java, pm, fullstack
+# URL for the Image of custom Favicon
+favicon-url: /assets/images/favicon.ico
+
+# URL of the Image of Custom Hero Image (i.e., the image in the background of the very first section of the Homepage)
+heroimage: https://images.pexels.com/photos/220444/pexels-photo-220444.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+
+# Social Media and Contact
+# If you don't want to use any icon, you can leave them blank.
+email: gregoryasarafin@gmail.com
+linkedin_username: gasarafin
+github_username:  gasarafin
+
+# Google Analytics
+# google-analytics: 
+
+# Name of the Author
+author-name: Gregory A Sarafin
+# Short Name of the Author
+short-author-name: Greg Sarafin
+# URL for the Image of the Author
+author-image: /assets/images/headshot.jpg
+# 60 Words About the Author
+author-about: Full-stack engineer and project manager with experience in both hardware and software development. Driven by a passion for technology and a commitment to efficient project delivery.
+# URL to the Author's Profile (i.e., Github, Twitter, Stackoverflow, etc)
+author-url: https://www.linkedin.com/in/gasarafin/
+# Footer About Blurb
+author-footer-desc: Full-Stack Engineer • Project Manager • IoT Developer
+
+# SASS
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Build settings
+plugins:
+  - jekyll-admin
+  - jekyll-feed
+
+# Permalink
+permalink: "project/:title"
+
+# Compress
+compress_html:
+  clippings: all
+
+# Defaults
+defaults:
+  -
+    scope:
+      type: 'posts'
+    values:
+      layout: post
+      post-image: ""
+      description: ""
+      tags:
+        - ""
+  -
+    scope:
+      type: 'pages'
+    values:
+      layout: page
+
+# Exclude
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

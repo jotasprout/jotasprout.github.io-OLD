@@ -1,0 +1,30 @@
+<div class="columns has-text-centered" id="project-card">
+    <div class="column is-marginless is-paddingless is-one-third-desktop is-one-third-fullhd is-one-third-tablet">
+        <div class="image is-16by9" style="background-image: url({{post.post-image}});"></div>
+    </div>
+    <a href="{{post.url | absolute_url}}">
+        <div class="column has-text-left-desktop has-text-left-tablet">
+            <h1 class="title is-size-4-touch">{{post.title}}</h1>
+            <div class="content has-text-grey">
+                <p>
+                    {{ post.content | truncate: 300 | strip_html | strip_newlines | strip | escape }}
+                </p>
+
+                {%- assign tags = post.tags -%}
+                {%- unless tags.size == 0 -%}
+                <p>Technologies Used:
+                    <span class="subtitle is-uppercase">
+
+                        {% assign i = 0 %}
+                        {% for tags in post.tags %}
+                        <span class="tag is-link">{{post.tags[i]}}</span>
+                        {% assign i = i | plus:1 %}
+                        {% endfor %}
+                    </span>
+                </p>
+                {%- endunless -%}
+                
+            </div>
+        </div>
+    </a>
+</div>

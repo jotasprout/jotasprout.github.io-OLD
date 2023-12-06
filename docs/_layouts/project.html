@@ -1,0 +1,31 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+    {% include navbar.html %}
+
+    <section class="hero is-fullheight" id="project">
+        <div class="hero-body">
+            <div class="container">
+                {% include project-heading.html %}
+            </div>
+        </div>
+        <div id="results-container"></div>
+        <!--Project Cards Section-->
+        {% for post in site.posts %}
+            {% include project-card.html %}
+        {% endfor %}
+        </div>
+    </section>
+    <br>
+    <!--Footer begins here-->
+    {% include footer.html %}
+</body>
+
+</html>
